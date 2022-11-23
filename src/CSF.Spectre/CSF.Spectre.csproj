@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-	<AssemblyVersion>1.3</AssemblyVersion>
-	<PackageVersion>1.3</PackageVersion>
-	<FileVersion>1.3.0.0</FileVersion>
-	<Version>1.3</Version>
+	<AssemblyVersion>1.4</AssemblyVersion>
+	<PackageVersion>1.4</PackageVersion>
+	<FileVersion>1.4.0.0</FileVersion>
+	<Version>1.4</Version>
 
 	<Authors>Armano den Boef and CSF contributors.</Authors>
 
@@ -14,7 +14,7 @@
 	<RepositoryUrl>https://github.com/Rozen4334/CSF.NET</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 
-	<PackageReleaseNotes>Version 1.3; Made for netstandard2.0.</PackageReleaseNotes>
+	<PackageReleaseNotes>Version 1.4; Made for netstandard2.0.</PackageReleaseNotes>
 	<PackageTags>Text, Console, Commands, Framework</PackageTags>
 
 	<Title>Command Standardization Framework Extension; Spectre.Console</Title>
