@@ -3,7 +3,8 @@ using CSF.Hosting;
 using CSF.Samples.Hosting;
 using Microsoft.Extensions.Hosting;
 
-await Host.CreateDefaultBuilder(args)
+var host = Host.CreateDefaultBuilder(args)
     .ConfigureCommandFramework<CommandFramework, CommandResolver>()
-    .Build()
-    .RunAsync();
+    .Build();
+
+await host.RunAsync();
