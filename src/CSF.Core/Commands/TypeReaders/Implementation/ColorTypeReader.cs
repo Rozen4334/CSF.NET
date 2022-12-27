@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSF
@@ -48,20 +49,20 @@ namespace CSF
             _spacedColors = spacedNames;
         }
 
-        public override Task<TypeReaderResult> ReadAsync(IContext context, Parameter parameter, object value, IServiceProvider provider)
+        public override ValueTask<TypeReaderResult> ReadAsync(IContext context, ParameterInfo parameter, object value, CancellationToken cancellationToken)
         {
             var str = value.ToString();
             if (int.TryParse(str.Replace("#", "").Replace("0x", ""), NumberStyles.HexNumber, null, out var hexNumber))
-                return Task.FromResult(TypeReaderResult.FromSuccess(Color.FromArgb(hexNumber)));
+                return TypeReaderResult.FromSuccess(Color.FromArgb(hexNumber));
 
             var name = str;
 
             _spacedColors.TryGetValue(name, out name);
 
             if (_colors.TryGetValue(name, out var color))
-                return Task.FromResult(TypeReaderResult.FromSuccess(color));
+                return TypeReaderResult.FromSuccess(color);
 
-            return Task.FromResult(TypeReaderResult.FromError($"The provided value is not a color. Expected {typeof(Color).Name}, got: '{str}'. At: '{parameter.Name}'"));
+            return TypeReaderResult.FromError($"The provided value is not a color. Expected {typeof(Color).Name}, got: '{str}'. At: '{parameter.Name}'");
         }
     }
 }

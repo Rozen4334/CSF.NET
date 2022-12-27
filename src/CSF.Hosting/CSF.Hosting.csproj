@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>net6</TargetFramework>
+	<TargetFramework>net6.0</TargetFramework>
 	<ImplicitUsings>enable</ImplicitUsings>
 	  
-	<AssemblyVersion>1.4.1</AssemblyVersion>
-	<PackageVersion>1.4.1</PackageVersion>
-	<FileVersion>1.4.1.0</FileVersion>
-	<Version>1.4.1</Version>
+	<AssemblyVersion>2.0</AssemblyVersion>
+	<PackageVersion>2.0</PackageVersion>
+	<FileVersion>2.0.1.0</FileVersion>
+	<Version>2.0</Version>
 
 	<Authors>Armano den Boef and CSF contributors.</Authors>
 
@@ -15,7 +15,7 @@
 	<RepositoryUrl>https://github.com/Rozen4334/CSF.NET</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 
-	<PackageReleaseNotes>Version 1.4.1; Made for net6+.</PackageReleaseNotes>
+	<PackageReleaseNotes>Version 2.0; Made for net6+.</PackageReleaseNotes>
 	<PackageTags>Text, Console, Commands, Framework, Hosting</PackageTags>
 
 	<Title>Command Standardization Framework Extension; Microsoft.Extensions.Hosting</Title>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSF
@@ -10,14 +11,14 @@ namespace CSF
 
         private readonly static Lazy<IReadOnlyDictionary<Type, Delegate>> _container = new Lazy<IReadOnlyDictionary<Type, Delegate>>(ValueGenerator);
 
-        public override Task<TypeReaderResult> ReadAsync(IContext context, Parameter parameter, object value, IServiceProvider provider)
+        public override ValueTask<TypeReaderResult> ReadAsync(IContext context, ParameterInfo parameter, object value, CancellationToken cancellationToken)
         {
             if (TryGetParser(out var parser))
             {
                 if (parser(value.ToString(), out var result))
-                    return Task.FromResult(TypeReaderResult.FromSuccess(result));
+                    return TypeReaderResult.FromSuccess(result);
             }
-            return Task.FromResult(TypeReaderResult.FromError($"The provided value does not match the expected type. Expected {typeof(T).Name}, got {value}. At: '{parameter.Name}'"));
+            return TypeReaderResult.FromError($"The provided value does not match the expected type. Expected {typeof(T).Name}, got {value}. At: '{parameter.Name}'");
         }
 
         private static bool TryGetParser(out Tpd<T> parser)

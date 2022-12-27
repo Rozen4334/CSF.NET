@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace CSF
 {
@@ -22,6 +23,9 @@ namespace CSF
             ErrorMessage = msg;
             Exception = exception;
         }
+
+        public static implicit operator ValueTask<PreconditionResult>(PreconditionResult result)
+            => result.AsValueTask();
 
         /// <summary>
         ///     Creates a failed result with provided parameters.

@@ -1,8 +1,8 @@
 ﻿using Spectre.Console;
 using System;
 using System.Threading.Tasks;
-[assembly: CLSCompliant(true)]
 
+[assembly: CLSCompliant(true)]
 namespace CSF.Spectre
 {
     /// <inheritdoc/>

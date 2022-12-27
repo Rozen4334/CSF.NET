@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSF
@@ -22,15 +23,15 @@ namespace CSF
             ContextType = contextType;
         }
 
-        public override Task<PreconditionResult> CheckAsync(IContext context, Command command, IServiceProvider provider)
+        public override ValueTask<PreconditionResult> CheckAsync(IContext context, CommandInfo command, IServiceProvider provider, CancellationToken cancellationToken)
         {
             var providedType = context.GetType();
 
             if (providedType != ContextType)
-                return Task.FromResult(PreconditionResult.FromError(
-                        errorMessage: $"Invalid context was passed into the command. Expected: '{ContextType.FullName}', got '{providedType.FullName}'"));
+                return PreconditionResult.FromError(
+                        errorMessage: $"Invalid context was passed into the command. Expected: '{ContextType.FullName}', got '{providedType.FullName}'");
 
-            return Task.FromResult(PreconditionResult.FromSuccess());
+            return PreconditionResult.FromSuccess();
         }
     }
 }

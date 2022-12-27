@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
 
-	<AssemblyVersion>1.4.1</AssemblyVersion>
-	<PackageVersion>1.4.1</PackageVersion>
-	<FileVersion>1.4.1.0</FileVersion>
-	<Version>1.4.1</Version>
+	<RootNamespace>CSF</RootNamespace>
+
+	<AssemblyVersion>2.0</AssemblyVersion>
+	<PackageVersion>2.0</PackageVersion>
+	<FileVersion>2.0.1.0</FileVersion>
+	<Version>2.0</Version>
 
 	<Authors>Armano den Boef and CSF contributors.</Authors>
 
@@ -14,7 +16,7 @@
 	<RepositoryUrl>https://github.com/Rozen4334/CSF.NET</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 
-	<PackageReleaseNotes>Version 1.4.1; Made for netstandard2.0.</PackageReleaseNotes>
+	<PackageReleaseNotes>Version 2.0; Made for net2.1+.</PackageReleaseNotes>
 	<PackageTags>Text, Console, Commands, Framework</PackageTags>
 	  
 	<Title>Command Standardization Framework</Title>

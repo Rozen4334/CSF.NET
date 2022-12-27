@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSF
@@ -50,14 +51,14 @@ namespace CSF
             AllowedPrefixes = new IPrefix[] { new CharPrefix(prefix) };
         }
 
-        public override Task<PreconditionResult> CheckAsync(IContext context, Command command, IServiceProvider provider)
+        public override ValueTask<PreconditionResult> CheckAsync(IContext context, CommandInfo command, IServiceProvider provider, CancellationToken cancellationToken)
         {
             foreach (var prefix in AllowedPrefixes)
             {
                 if (context.Parameters[0].ToString().StartsWith(prefix.Value))
-                    return Task.FromResult(PreconditionResult.FromSuccess());
+                    return PreconditionResult.FromSuccess();
             }
-            return Task.FromResult(PreconditionResult.FromError("Failed to find any allowed prefix with matching type."));
+            return PreconditionResult.FromError("Failed to find any allowed prefix with matching type.");
         }
     }
 }
